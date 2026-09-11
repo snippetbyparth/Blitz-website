@@ -1,0 +1,178 @@
+[
+  {
+    "id": "president",
+    "name": "TBD — Core Member 01",
+    "position": "President",
+    "tier": "core",
+    "image": "/images/team/placeholder.jpg",
+    "bio": "",
+    "linkedin": "",
+    "github": "",
+    "instagram": ""
+  },
+  {
+    "id": "vice-president",
+    "name": "TBD — Core Member 02",
+    "position": "Vice President",
+    "tier": "core",
+    "image": "/images/team/placeholder.jpg",
+    "bio": "",
+    "linkedin": "",
+    "github": "",
+    "instagram": ""
+  },
+  {
+    "id": "treasurer",
+    "name": "TBD — Core Member 03",
+    "position": "Treasurer",
+    "tier": "core",
+    "image": "/images/team/placeholder.jpg",
+    "bio": "",
+    "linkedin": "",
+    "github": "",
+    "instagram": ""
+  },
+  {
+    "id": "senior-01",
+    "name": "TBD — Senior Executive 01",
+    "position": "Senior Executive",
+    "tier": "senior",
+    "image": "/images/team/placeholder.jpg",
+    "bio": "",
+    "linkedin": "",
+    "github": "",
+    "instagram": ""
+  },
+  {
+    "id": "senior-02",
+    "name": "TBD — Senior Executive 02",
+    "position": "Senior Executive",
+    "tier": "senior",
+    "image": "/images/team/placeholder.jpg",
+    "bio": "",
+    "linkedin": "",
+    "github": "",
+    "instagram": ""
+  },
+  {
+    "id": "senior-03",
+    "name": "TBD — Senior Executive 03",
+    "position": "Senior Executive",
+    "tier": "senior",
+    "image": "/images/team/placeholder.jpg",
+    "bio": "",
+    "linkedin": "",
+    "github": "",
+    "instagram": ""
+  },
+  {
+    "id": "senior-04",
+    "name": "TBD — Senior Executive 04",
+    "position": "Senior Executive",
+    "tier": "senior",
+    "image": "/images/team/placeholder.jpg",
+    "bio": "",
+    "linkedin": "",
+    "github": "",
+    "instagram": ""
+  },
+  {
+    "id": "senior-05",
+    "name": "TBD — Senior Executive 05",
+    "position": "Senior Executive",
+    "tier": "senior",
+    "image": "/images/team/placeholder.jpg",
+    "bio": "",
+    "linkedin": "",
+    "github": "",
+    "instagram": ""
+  },
+  {
+    "id": "junior-01",
+    "name": "TBD — Junior Member 01",
+    "position": "Junior Member",
+    "tier": "junior",
+    "image": "/images/team/placeholder.jpg",
+    "bio": "",
+    "linkedin": "",
+    "github": "",
+    "instagram": ""
+  },
+  {
+    "id": "junior-02",
+    "name": "TBD — Junior Member 02",
+    "position": "Junior Member",
+    "tier": "junior",
+    "image": "/images/team/placeholder.jpg",
+    "bio": "",
+    "linkedin": "",
+    "github": "",
+    "instagram": ""
+  },
+  {
+    "id": "junior-03",
+    "name": "TBD — Junior Member 03",
+    "position": "Junior Member",
+    "tier": "junior",
+    "image": "/images/team/placeholder.jpg",
+    "bio": "",
+    "linkedin": "",
+    "github": "",
+    "instagram": ""
+  },
+  {
+    "id": "volunteer-01",
+    "name": "TBD — Volunteer 01",
+    "position": "Volunteer",
+    "tier": "volunteer",
+    "image": "/images/team/placeholder.jpg",
+    "bio": "",
+    "linkedin": "",
+    "github": "",
+    "instagram": ""
+  },
+  {
+    "id": "volunteer-02",
+    "name": "TBD — Volunteer 02",
+    "position": "Volunteer",
+    "tier": "volunteer",
+    "image": "/images/team/placeholder.jpg",
+    "bio": "",
+    "linkedin": "",
+    "github": "",
+    "instagram": ""
+  },
+  {
+    "id": "volunteer-03",
+    "name": "TBD — Volunteer 03",
+    "position": "Volunteer",
+    "tier": "volunteer",
+    "image": "/images/team/placeholder.jpg",
+    "bio": "",
+    "linkedin": "",
+    "github": "",
+    "instagram": ""
+  },
+  {
+    "id": "volunteer-04",
+    "name": "TBD — Volunteer 04",
+    "position": "Volunteer",
+    "tier": "volunteer",
+    "image": "/images/team/placeholder.jpg",
+    "bio": "",
+    "linkedin": "",
+    "github": "",
+    "instagram": ""
+  },
+  {
+    "id": "volunteer-05",
+    "name": "TBD — Volunteer 05",
+    "position": "Volunteer",
+    "tier": "volunteer",
+    "image": "/images/team/placeholder.jpg",
+    "bio": "",
+    "linkedin": "",
+    "github": "",
+    "instagram": ""
+  }
+]

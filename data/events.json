@@ -1,0 +1,32 @@
+[
+  {
+    "id": "blitzkrieg",
+    "name": "Blitzkrieg",
+    "category": "Annual Fest",
+    "date": "2025-03-15",
+    "description": "",
+    "poster": "/images/events/placeholder.jpg",
+    "registrationLink": "",
+    "detailsLink": ""
+  },
+  {
+    "id": "hackathon-2025",
+    "name": "TBD — Event 02",
+    "category": "Hackathon",
+    "date": "2025-04-20",
+    "description": "",
+    "poster": "/images/events/placeholder.jpg",
+    "registrationLink": "",
+    "detailsLink": ""
+  },
+  {
+    "id": "workshop-2025",
+    "name": "TBD — Event 03",
+    "category": "Workshop",
+    "date": "2025-05-10",
+    "description": "",
+    "poster": "/images/events/placeholder.jpg",
+    "registrationLink": "",
+    "detailsLink": ""
+  }
+]

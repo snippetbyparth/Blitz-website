@@ -1,0 +1,32 @@
+[
+  {
+    "id": "resqnet",
+    "name": "ResQNet",
+    "tags": ["AI", "Web"],
+    "description": "",
+    "image": "/images/projects/placeholder.jpg",
+    "team": ["senior-01", "senior-02"],
+    "github": "",
+    "liveDemo": ""
+  },
+  {
+    "id": "project-02",
+    "name": "TBD — Project 02",
+    "tags": ["ML", "Python"],
+    "description": "",
+    "image": "/images/projects/placeholder.jpg",
+    "team": ["senior-03"],
+    "github": "",
+    "liveDemo": ""
+  },
+  {
+    "id": "project-03",
+    "name": "TBD — Project 03",
+    "tags": ["Web", "React"],
+    "description": "",
+    "image": "/images/projects/placeholder.jpg",
+    "team": ["senior-04", "junior-01"],
+    "github": "",
+    "liveDemo": ""
+  }
+]
