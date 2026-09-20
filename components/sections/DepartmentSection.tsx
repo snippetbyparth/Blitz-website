@@ -98,6 +98,7 @@ export function DepartmentSection() {
   return (
     <section
       ref={sectionRef}
+      id="department"
       className="relative w-full min-h-screen flex items-center justify-center bg-gradient-to-b from-slate-900 to-slate-800 py-16"
     >
       <div className="flex flex-col items-center gap-12">
