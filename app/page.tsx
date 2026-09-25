@@ -1,5 +1,6 @@
-import { HeroSection } from '@/components/hero/HeroSection';
-import { DepartmentSection } from '@/components/sections/DepartmentSection';
+import { HeroSection } from '../components/hero/HeroSection';
+import { DepartmentSection } from '../components/sections/DepartmentSection';
+import { AboutSection } from '../components/sections/AboutSection';
 import { PeopleSection } from '@/components/sections/PeopleSection';
 import { TeamSection } from '@/components/team/TeamSection';
 import { WhatWeDoSection } from '@/components/sections/WhatWeDoSection';
@@ -10,6 +11,7 @@ export default function Home() {
     <main className="w-full">
       <HeroSection />
       <DepartmentSection />
+      <AboutSection />
       <PeopleSection />
       <TeamSection />
       <WhatWeDoSection />

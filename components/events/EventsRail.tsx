@@ -53,7 +53,7 @@ export function EventsRail() {
       <section
         ref={sectionRef}
         id="events"
-        className="w-full min-h-screen flex items-center justify-center bg-gradient-to-b from-slate-900 to-slate-800"
+        className="w-full min-h-screen flex items-center justify-center bg-linear-to-b from-slate-900 to-slate-800"
       >
         <p className="text-slate-400">No events scheduled</p>
       </section>
@@ -64,7 +64,7 @@ export function EventsRail() {
     <section
       ref={sectionRef}
       id="events"
-      className="relative w-full min-h-screen flex items-center bg-gradient-to-b from-slate-900 to-slate-800 px-6 py-20"
+      className="relative w-full min-h-screen flex items-center bg-linear-to-b from-slate-900 to-slate-800 px-6 py-20"
     >
       <div className="w-full max-w-7xl mx-auto">
         <div className="mb-12">

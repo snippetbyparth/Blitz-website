@@ -1,185 +1,170 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const areas = [
-  'Programming',
-  'Data',
-  'Systems',
-  'AI',
-  'Mathematics',
-  'Web',
-  'Networks',
-  'Emerging Tech',
-];
+function splitIntoLines(element: HTMLElement) {
+  const text = element.dataset.originalText ?? element.textContent ?? '';
+  element.dataset.originalText = text;
+  const words = text.trim().split(/\s+/);
+  const wordElements: HTMLSpanElement[] = [];
 
-interface NodePosition {
-  x: number;
-  y: number;
-  id: string;
-  label: string;
+  element.textContent = '';
+  words.forEach((word) => {
+    const wordElement = document.createElement('span');
+    wordElement.className = 'home-line-word';
+    wordElement.textContent = `${word} `;
+    element.append(wordElement);
+    wordElements.push(wordElement);
+  });
+
+  const lines: string[] = [];
+  let currentTop: number | undefined;
+  let currentLine: string[] = [];
+
+  wordElements.forEach((wordElement) => {
+    const top = Math.round(wordElement.getBoundingClientRect().top);
+    if (currentTop !== undefined && top !== currentTop) {
+      lines.push(currentLine.join(' '));
+      currentLine = [];
+    }
+    currentTop = top;
+    currentLine.push(wordElement.textContent?.trim() ?? '');
+  });
+
+  if (currentLine.length > 0) lines.push(currentLine.join(' '));
+
+  element.replaceChildren(
+    ...lines.map((line) => {
+      const lineElement = document.createElement('span');
+      const innerElement = document.createElement('span');
+      lineElement.className = 'home-line';
+      innerElement.className = 'home-line-inner';
+      innerElement.textContent = line;
+      lineElement.append(innerElement);
+      return lineElement;
+    }),
+  );
 }
 
+const focusAreas = [
+  {
+    number: '01',
+    title: 'WORKSHOPS & SEMINARS',
+    description:
+      'Interactive sessions that help students explore concepts, tools and emerging areas of technology.',
+  },
+  {
+    number: '02',
+    title: 'TECHNICAL EVENTS',
+    description:
+      'Competitions and challenges that encourage problem-solving, logical thinking and creativity.',
+  },
+  {
+    number: '03',
+    title: 'PROJECTS & INITIATIVES',
+    description:
+      'Opportunities to apply technical knowledge, experiment with ideas and learn through practical experience.',
+  },
+  {
+    number: '04',
+    title: 'COMMUNITY & COLLABORATION',
+    description:
+      'A space for students to learn, collaborate and grow together through shared interests in computer science.',
+  },
+];
+
 export function DepartmentSection() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const svgRef = useRef<SVGSVGElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
 
-  useEffect(() => {
-    if (!sectionRef.current || !svgRef.current) return;
+  useLayoutEffect(() => {
+    if (!sectionRef.current) return;
 
-    const svg = svgRef.current;
-    const width = 800;
-    const height = 600;
-    const centerX = width / 2;
-    const centerY = height / 2;
-    const radius = 150;
+    const context = gsap.context(() => {
+      const textElements = gsap.utils.toArray<HTMLElement>('[data-home-lines]');
+      textElements.forEach(splitIntoLines);
 
-    // Calculate positions for outer nodes
-    const nodePositions: NodePosition[] = [
-      { x: centerX, y: centerY, id: 'center', label: 'COMPUTER SCIENCE' },
-    ];
+      const revealItems = gsap.utils.toArray<HTMLElement>('.home-line-inner');
+      const fadeItems = gsap.utils.toArray<HTMLElement>('.home-line');
+      const revealTimeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top 82%',
+          end: 'bottom 70%',
+          scrub: 0.8,
+        },
+      });
 
-    areas.forEach((area, index) => {
-      const angle = (index / areas.length) * Math.PI * 2;
-      const x = centerX + radius * Math.cos(angle);
-      const y = centerY + radius * Math.sin(angle);
-      nodePositions.push({ x, y, id: `node-${index}`, label: area });
-    });
+      gsap.set(revealItems, {
+        clipPath: 'inset(0 100% 0 0)',
+        opacity: 0,
+      });
 
-    // Create center node
-    const centerNode = svg.querySelector('[data-node="center"]');
-    if (centerNode) {
-      gsap.set(centerNode, { opacity: 0, scale: 0.5 });
-    }
+      revealTimeline.to(revealItems, {
+        clipPath: 'inset(0 0% 0 0)',
+        opacity: 1,
+        duration: 0.72,
+        ease: 'power2.out',
+        stagger: 0.22,
+      });
 
-    // Create outer nodes and lines
-    const outerNodes = svg.querySelectorAll('[data-node]:not([data-node="center"])');
-    const lines = svg.querySelectorAll('line');
+      fadeItems.forEach((line) => {
+        gsap.to(line, {
+          opacity: 0,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: line,
+            start: 'top 74px',
+            end: 'top 12px',
+            scrub: true,
+          },
+        });
+      });
+    }, sectionRef);
 
-    gsap.set([outerNodes, lines], { opacity: 0 });
-
-    // Create timeline
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: 'top center',
-        end: 'bottom center',
-        scrub: 1,
-        markers: false,
-      },
-    });
-
-    // Animate center node first
-    tl.to(centerNode, { opacity: 1, scale: 1, duration: 0.5 }, 0);
-
-    // Stagger outer nodes and lines
-    tl.to(
-      outerNodes,
-      { opacity: 1, stagger: 0.08, duration: 0.4 },
-      0.3
-    );
-
-    tl.to(
-      lines,
-      { opacity: 0.6, strokeDashoffset: 0, stagger: 0.08, duration: 0.4 },
-      0.3
-    );
-
-    return () => {
-      tl.kill();
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
+    return () => context.revert();
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      id="department"
-      className="relative w-full min-h-screen flex items-center justify-center bg-gradient-to-b from-slate-900 to-slate-800 py-16"
-    >
-      <div className="flex flex-col items-center gap-12">
-        <div className="text-center">
-          <h2 className="text-5xl md:text-6xl font-bold text-white mb-4">
-            The Department
-          </h2>
-          <p className="text-lg text-slate-400">
-            Computer Science encompasses many disciplines
-          </p>
+    <section ref={sectionRef} id="department" className="home-section">
+      <div className="home-layout">
+        <aside className="home-meta">
+          <span className="home-meta-title">BLITZ / HOME</span>
+        </aside>
+
+        <div className="home-content">
+          <header className="home-intro">
+            <h1 data-home-lines>Silicon Minds, Circuited Hearts.</h1>
+            <p data-home-lines>
+              BLITZ is the departmental society of the Department of Computer
+              Science at Keshav Mahavidyalaya, University of Delhi. Through
+              workshops, seminars, competitions, technical events and other
+              learning initiatives, BLITZ provides students with opportunities
+              to explore technology, develop practical skills, and engage with
+              computer science beyond the classroom.
+            </p>
+          </header>
+
+          <div className="home-focus" aria-labelledby="what-we-do-title">
+            <h2 id="what-we-do-title" data-home-lines>
+              WHAT WE DO
+            </h2>
+            <div className="home-focus-list">
+              {focusAreas.map((area) => (
+                <article className="home-focus-item" key={area.number}>
+                  <div className="home-focus-heading">
+                    <span>{area.number}</span>
+                    <h3 data-home-lines>{area.title}</h3>
+                  </div>
+                  <p data-home-lines>{area.description}</p>
+                </article>
+              ))}
+            </div>
+          </div>
         </div>
-
-        <svg
-          ref={svgRef}
-          viewBox="0 0 800 600"
-          className="w-full max-w-4xl h-auto border border-blue-500/20 rounded-lg bg-slate-800/50"
-        >
-          {/* Center Node */}
-          <g data-node="center">
-            <circle
-              cx="400"
-              cy="300"
-              r="45"
-              fill="#3b82f6"
-              className="drop-shadow-lg"
-            />
-            <text
-              x="400"
-              y="305"
-              textAnchor="middle"
-              dominantBaseline="middle"
-              className="text-xs font-bold fill-white pointer-events-none select-none"
-              fontSize="12"
-            >
-              CS
-            </text>
-          </g>
-
-          {/* Outer Nodes and Lines */}
-          {areas.map((area, index) => {
-            const angle = (index / areas.length) * Math.PI * 2;
-            const radius = 150;
-            const x = 400 + radius * Math.cos(angle);
-            const y = 300 + radius * Math.sin(angle);
-
-            return (
-              <g key={`node-group-${index}`}>
-                <line
-                  x1="400"
-                  y1="300"
-                  x2={x}
-                  y2={y}
-                  stroke="#3b82f6"
-                  strokeWidth="2"
-                  strokeDasharray="100"
-                  strokeDashoffset="100"
-                  className="opacity-60"
-                />
-                <g data-node={`node-${index}`}>
-                  <circle
-                    cx={x}
-                    cy={y}
-                    r="35"
-                    fill="#1e40af"
-                    className="hover:fill-blue-400 transition-colors cursor-pointer drop-shadow-lg"
-                  />
-                  <text
-                    x={x}
-                    y={y}
-                    textAnchor="middle"
-                    dominantBaseline="middle"
-                    className="text-xs font-semibold fill-white pointer-events-none select-none"
-                    fontSize="11"
-                  >
-                    {area.split(' ')[0]}
-                  </text>
-                </g>
-              </g>
-            );
-          })}
-        </svg>
       </div>
     </section>
   );
