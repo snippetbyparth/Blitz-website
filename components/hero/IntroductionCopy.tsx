@@ -83,7 +83,7 @@ export function IntroductionCopy() {
         BLITZ — THE DEPARTMENTAL SOCIETY OF COMPUTER SCIENCE
       </p>
       <p className="introduction-copy-description" data-intro-text>
-        A STUDENT-DRIVEN COMMUNITY BUILT TO CREATE, COLLABORATE, AND PUSH THE
+        A STUDENT-DRIVEN COMMUNITY BUILT TO CREATE, COLLABORATE, AND PUSH THE 
         BOUNDARIES OF COMPUTING.
       </p>
     </aside>
