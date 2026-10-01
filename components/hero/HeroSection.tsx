@@ -5,6 +5,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { DepartmentMarquee } from './DepartmentMarquee';
 import { IntroductionCopy } from './IntroductionCopy';
+import { AnnouncementsCopy } from './AnnouncementsCopy';
 import { NavBar } from '../shared/NavBar';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -42,6 +43,7 @@ export function HeroSection() {
       <NavBar logoRef={logoRef} />
       <DepartmentMarquee />
       <IntroductionCopy />
+      <AnnouncementsCopy />
     </section>
   );
 }

@@ -22,8 +22,8 @@ export function TeamCard({
   instagram,
 }: TeamCardProps) {
   return (
-    <div className="flex flex-col items-center text-center">
-      <div className="relative w-32 h-32 md:w-40 md:h-40 mb-4 rounded-lg overflow-hidden bg-slate-700">
+    <div className="team-card">
+      <div className="team-card-image">
         <Image
           src={image}
           alt={name}
@@ -31,23 +31,23 @@ export function TeamCard({
           className="object-cover"
         />
       </div>
-      <h3 className="text-lg md:text-xl font-display text-white mb-1">
+      <h3 className="team-card-name">
         {name}
       </h3>
-      <p className="text-sm md:text-base font-mono text-blue-400 uppercase tracking-wide mb-3">
+      <p className="team-card-position">
         {position}
       </p>
-      {bio && <p className="text-xs md:text-sm text-slate-300 max-w-xs mb-4">{bio}</p>}
+      {bio && <p className="team-card-bio">{bio}</p>}
 
       {/* Social Links */}
       {(linkedin || github || instagram) && (
-        <div className="flex gap-3 justify-center text-xs md:text-sm">
+        <div className="team-card-links">
           {linkedin && (
             <a
               href={linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-400 hover:text-blue-400 transition-colors"
+              className="team-card-link"
               aria-label="LinkedIn"
             >
               LinkedIn
@@ -58,7 +58,7 @@ export function TeamCard({
               href={github}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-400 hover:text-blue-400 transition-colors"
+              className="team-card-link"
               aria-label="GitHub"
             >
               GitHub
@@ -69,7 +69,7 @@ export function TeamCard({
               href={instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-400 hover:text-blue-400 transition-colors"
+              className="team-card-link"
               aria-label="Instagram"
             >
               Instagram

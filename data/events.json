@@ -1,32 +1,26 @@
 [
   {
     "id": "blitzkrieg",
-    "name": "Blitzkrieg",
-    "category": "Annual Fest",
-    "date": "2025-03-15",
-    "description": "",
-    "poster": "/images/events/placeholder.jpg",
-    "registrationLink": "",
-    "detailsLink": ""
+    "title": "Blitzkrieg",
+    "description": "A flagship celebration of code, creativity and the people who make BLITZ move.",
+    "date": "15 Mar 2025",
+    "location": "Keshav Mahavidyalaya",
+    "additionalInfo": "Annual technical festival"
   },
   {
     "id": "hackathon-2025",
-    "name": "TBD — Event 02",
-    "category": "Hackathon",
-    "date": "2025-04-20",
-    "description": "",
-    "poster": "/images/events/placeholder.jpg",
-    "registrationLink": "",
-    "detailsLink": ""
+    "title": "CodeVerse",
+    "description": "A focused build sprint where teams turn sharp ideas into working prototypes.",
+    "date": "20 Apr 2025",
+    "location": "Computer Science Lab",
+    "additionalInfo": "Collaborative hackathon"
   },
   {
     "id": "workshop-2025",
-    "name": "TBD — Event 03",
-    "category": "Workshop",
-    "date": "2025-05-10",
-    "description": "",
-    "poster": "/images/events/placeholder.jpg",
-    "registrationLink": "",
-    "detailsLink": ""
+    "title": "TechNova",
+    "description": "An exploratory workshop for learning new tools, patterns and ways of thinking.",
+    "date": "10 May 2025",
+    "location": "Seminar Hall",
+    "additionalInfo": "Hands-on workshop"
   }
 ]

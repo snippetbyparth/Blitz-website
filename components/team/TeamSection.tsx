@@ -79,19 +79,19 @@ export function TeamSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full min-h-screen bg-gradient-to-b from-slate-900 to-slate-800 px-6 py-20"
+      className="team-section"
     >
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-bold text-white mb-4">
+      <div className="team-layout">
+        <div className="team-heading">
+          <h2>
             Our Team
           </h2>
-          <p className="text-lg text-slate-400">
+          <p>
             Meet the brilliant minds behind BLITZ
           </p>
         </div>
 
-        <div ref={contentRef} className="space-y-20">
+        <div ref={contentRef} className="team-content">
           {tierOrder.map((tier) => (
             grouped[tier] && (
               <div key={tier} data-tier>

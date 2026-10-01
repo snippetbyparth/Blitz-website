@@ -1,24 +1,30 @@
 import type { RefObject } from 'react';
+import Link from 'next/link';
 import { BlitzLogo } from '../hero/BlitzLogo';
 
 interface NavBarProps {
 	logoRef: RefObject<HTMLDivElement | null>;
+	staticLogo?: boolean;
 }
 
 const navigationLinks = [
-	{ label: 'About', href: '#department' },
+	{ label: 'About', href: '#about' },
 	{ label: 'Events', href: '#events' },
 	{ label: 'Gallery', href: '#gallery' },
 	{ label: 'Achievements', href: '#achievements' },
 ];
 
-export function NavBar({ logoRef }: NavBarProps) {
+export function NavBar({ logoRef, staticLogo = false }: NavBarProps) {
 	return (
 		<nav className="introduction-nav" aria-label="Primary navigation">
-			<a className="nav-logo" href="#top" aria-label="BLITZ home">
+			<Link className="nav-logo" href="/" aria-label="BLITZ home">
 				BLITZ
-			</a>
-			<div ref={logoRef} className="transition-logo" aria-label="BLITZ logo">
+			</Link>
+			<div
+				ref={logoRef}
+				className={`transition-logo${staticLogo ? ' transition-logo--static' : ''}`}
+				aria-label="BLITZ logo"
+			>
 				<BlitzLogo />
 			</div>
 			<div className="nav-links">
