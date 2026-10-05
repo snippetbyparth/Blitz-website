@@ -36,6 +36,7 @@ export function EventCard({
           src={poster}
           alt={name}
           fill
+          sizes="(max-width: 767px) calc(100vw - 40px), 320px"
           className="object-cover"
         />
       </div>

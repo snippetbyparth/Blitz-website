@@ -118,6 +118,10 @@ body {
   text-decoration: none;
 }
 
+.nav-menu-toggle {
+  display: none;
+}
+
 .transition-logo {
   position: fixed;
   top: 41.4vh;
@@ -1505,6 +1509,7 @@ body {
 
 @media (max-width: 767px) {
   .introduction-nav {
+    height: 64px;
     padding: 0 16px;
   }
 
@@ -1512,12 +1517,75 @@ body {
     font-size: 28px;
   }
 
+  .nav-menu-toggle {
+    position: relative;
+    z-index: 8;
+    display: flex;
+    width: 44px;
+    height: 44px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 0;
+    color: var(--nav-text);
+    background: transparent;
+    border: 1px solid rgba(92, 0, 0, 0.5);
+    cursor: pointer;
+  }
+
+  .nav-menu-toggle span {
+    display: block;
+    width: 20px;
+    height: 1px;
+    background: currentColor;
+    transition: transform 180ms ease, opacity 180ms ease;
+  }
+
+  .nav-menu-toggle.is-open span:first-child {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  .nav-menu-toggle.is-open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-menu-toggle.is-open span:last-child {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
   .nav-links {
-    gap: 12px;
+    position: absolute;
+    top: 64px;
+    right: 0;
+    left: 0;
+    display: flex;
+    visibility: hidden;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 8px 16px 16px;
+    background: var(--nav-background);
+    border-bottom: 1px solid rgba(92, 0, 0, 0.7);
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: opacity 180ms ease, transform 180ms ease, visibility 180ms;
+  }
+
+  .nav-links.is-open {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
   }
 
   .nav-links a {
-    font-size: 13px;
+    display: flex;
+    min-height: 48px;
+    align-items: center;
+    padding: 0 4px;
+    color: var(--nav-text);
+    font-size: 16px;
+    border-top: 1px solid rgba(92, 0, 0, 0.18);
   }
 
   .transition-logo {
@@ -1662,22 +1730,25 @@ body {
   }
 
   .events-panel {
-    top: var(--event-stack-offset);
-    height: calc(100svh - var(--event-stack-offset));
-    min-height: 540px;
+    position: relative;
+    top: auto;
+    height: auto;
+    min-height: 0;
   }
 
   .events-panel-inner {
     width: calc(100% - 40px);
-    padding: 28px 0 48px;
+    padding: 28px 0 64px;
   }
 
   .events-panel-content {
-    padding: 32px 0;
+    margin: 0;
+    padding: 64px 0 0;
   }
 
   .events-panel-content h3 {
-    font-size: clamp(48px, 15vw, 76px);
+    font-size: clamp(42px, 14vw, 64px);
+    overflow-wrap: anywhere;
   }
 
   .events-panel-description {
@@ -1700,6 +1771,72 @@ body {
   .blitz-contact-grid {
     grid-template-columns: 1fr;
     gap: 22px;
+  }
+
+  .team-layout {
+    width: calc(100% - 40px);
+    padding: 116px 0 72px;
+  }
+
+  .team-heading {
+    padding-bottom: 64px;
+  }
+
+  .team-heading h2 {
+    font-size: clamp(42px, 13vw, 64px);
+  }
+
+  .team-heading p {
+    font-size: 15px;
+  }
+
+  .team-content {
+    padding-top: 48px;
+  }
+
+  .team-tier {
+    margin-bottom: 64px;
+  }
+
+  .team-tier-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px 16px;
+  }
+
+  .team-tier-grid.grid-cols-1 {
+    grid-template-columns: 1fr;
+  }
+
+  .team-card-image {
+    width: 6.5rem;
+    height: 6.5rem;
+  }
+
+  .team-card-name {
+    font-size: 16px;
+  }
+
+  .team-card-bio {
+    font-size: 12px;
+  }
+
+  .gallery-scroller,
+  .highlights-scroller {
+    margin-right: -20px;
+    padding-right: 20px;
+  }
+
+  .gallery-track,
+  .highlights-track {
+    padding-right: 20px;
+  }
+
+  .gallery-item {
+    flex-basis: min(78vw, 320px);
+  }
+
+  .highlights-card {
+    width: min(78vw, 300px);
   }
 }
 

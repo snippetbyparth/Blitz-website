@@ -28,6 +28,7 @@ export function TeamCard({
           src={image}
           alt={name}
           fill
+          sizes="104px"
           className="object-cover"
         />
       </div>
