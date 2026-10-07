@@ -38,7 +38,7 @@ export function OrgTier({ tier, members, tierLabel }: OrgTierProps) {
   const getGridClass = () => {
     switch (tier) {
       case 'core':
-        return 'grid-cols-1 md:grid-cols-3 gap-8';
+        return 'grid-cols-2 md:grid-cols-3 gap-8';
       case 'senior':
         return 'grid-cols-2 md:grid-cols-5 gap-6';
       case 'junior':
@@ -58,7 +58,9 @@ export function OrgTier({ tier, members, tierLabel }: OrgTierProps) {
         </h3>
       </div>
 
-      <div className={`team-tier-grid ${getGridClass()}`}>
+      <div
+        className={`team-tier-grid${tier === 'core' ? ' leadership-grid' : ''} ${getGridClass()}`}
+      >
         {members.map((member) => (
           <div key={member.id} data-team-card>
             <TeamCard

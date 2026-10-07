@@ -226,11 +226,19 @@ body {
   white-space: nowrap;
 }
 
-.introduction-copy {
+.introduction-copy-stack {
   position: absolute;
-  right: clamp(32px, 5.5vw, 88px);
   bottom: clamp(48px, 6.5vh, 72px);
+  left: 0;
+  right: 0;
   z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 0 clamp(32px, 5.5vw, 88px);
+}
+
+.introduction-copy {
   width: min(35vw, 480px);
   color: rgba(255, 255, 255, 0.78);
   font-family: var(--font-geist-mono), monospace;
@@ -238,8 +246,6 @@ body {
 }
 
 .introduction-announcements {
-  right: auto;
-  left: clamp(32px, 5.5vw, 88px);
   text-align: left;
 }
 
@@ -1610,9 +1616,16 @@ body {
     padding-right: 48px;
   }
 
+  .introduction-copy-stack {
+    right: 0;
+    bottom: 28px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 52px;
+    padding: 0 20px;
+  }
+
   .introduction-copy {
-    right: 20px;
-    bottom: 36px;
     width: min(78vw, 360px);
   }
 
@@ -1803,8 +1816,18 @@ body {
     gap: 32px 16px;
   }
 
+  .team-tier-grid.leadership-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .team-tier-grid.grid-cols-1 {
     grid-template-columns: 1fr;
+  }
+
+  .team-tier-grid.leadership-grid > :nth-child(3) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc((100% - 16px) / 2);
   }
 
   .team-card-image {

@@ -42,8 +42,10 @@ export function HeroSection() {
     <section ref={sectionRef} id="top" className="introduction">
       <NavBar logoRef={logoRef} />
       <DepartmentMarquee />
-      <IntroductionCopy />
-      <AnnouncementsCopy />
+      <div className="introduction-copy-stack">
+        <AnnouncementsCopy />
+        <IntroductionCopy />
+      </div>
     </section>
   );
 }
